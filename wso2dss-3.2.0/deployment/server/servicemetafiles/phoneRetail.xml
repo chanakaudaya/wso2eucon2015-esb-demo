@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><serviceGroup name="phoneRetail" hashValue="9feebab09404b2b4746670d0513f9f23" successfullyAdded="true">
+    <service name="phoneRetail" serviceDocumentation="" exposedAllTransports="true" serviceDeployedTime="1433094372938" successfullyAdded="true">
+        <operation name="insertPhones">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+            <module name="wso2statistics" version="4.2.2" type="engagedModules"/>
+            <module name="POXSecurityModule" version="4.2.4" type="engagedModules"/>
+            <module name="ServerAdminModule" version="4.2.0" type="engagedModules"/>
+            <module name="pagination" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation name="updatePhones">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+            <module name="wso2statistics" version="4.2.2" type="engagedModules"/>
+            <module name="POXSecurityModule" version="4.2.4" type="engagedModules"/>
+            <module name="ServerAdminModule" version="4.2.0" type="engagedModules"/>
+            <module name="pagination" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation name="searchPhones">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+            <module name="wso2statistics" version="4.2.2" type="engagedModules"/>
+            <module name="POXSecurityModule" version="4.2.4" type="engagedModules"/>
+            <module name="ServerAdminModule" version="4.2.0" type="engagedModules"/>
+            <module name="pagination" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <bindings>
+            <binding name="phoneRetailSOAP12Binding">
+                <operation name="insertPhones"/>
+                <operation name="updatePhones"/>
+                <operation name="searchPhones"/>
+            </binding>
+            <binding name="phoneRetailHttpBinding">
+                <operation name="insertPhones"/>
+                <operation name="updatePhones"/>
+                <operation name="searchPhones"/>
+            </binding>
+            <binding name="phoneRetailSOAP11Binding">
+                <operation name="insertPhones"/>
+                <operation name="updatePhones"/>
+                <operation name="searchPhones"/>
+            </binding>
+        </bindings>
+        <policies/>
+        <module name="addressing" version="4.2.0" type="engagedModules"/>
+        <module name="wso2statistics" version="4.2.2" type="engagedModules"/>
+        <module name="POXSecurityModule" version="4.2.4" type="engagedModules"/>
+        <module name="ServerAdminModule" version="4.2.0" type="engagedModules"/>
+        <module name="pagination" version="4.2.0" type="engagedModules"/>
+        <parameter name="serviceType">data_service</parameter>
+    </service>
+</serviceGroup>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><serviceGroup name="CustomerDS" hashValue="88a2d366036d85adf64fc69fdc7e89b7" successfullyAdded="true">
+    <service name="CustomerDS" serviceDocumentation="" exposedAllTransports="true" serviceDeployedTime="1433060607192" successfullyAdded="true">
+        <operation name="op1">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+            <module name="wso2statistics" version="4.2.2" type="engagedModules"/>
+            <module name="POXSecurityModule" version="4.2.4" type="engagedModules"/>
+            <module name="ServerAdminModule" version="4.2.0" type="engagedModules"/>
+            <module name="pagination" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <bindings>
+            <binding name="CustomerDSSOAP12Binding">
+                <operation name="op1"/>
+            </binding>
+            <binding name="CustomerDSHttpBinding">
+                <operation name="op1"/>
+            </binding>
+            <binding name="CustomerDSSOAP11Binding">
+                <operation name="op1"/>
+            </binding>
+        </bindings>
+        <policies/>
+        <module name="addressing" version="4.2.0" type="engagedModules"/>
+        <module name="wso2statistics" version="4.2.2" type="engagedModules"/>
+        <module name="POXSecurityModule" version="4.2.4" type="engagedModules"/>
+        <module name="ServerAdminModule" version="4.2.0" type="engagedModules"/>
+        <module name="pagination" version="4.2.0" type="engagedModules"/>
+        <parameter name="serviceType">data_service</parameter>
+    </service>
+</serviceGroup>

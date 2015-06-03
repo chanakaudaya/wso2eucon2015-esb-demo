@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="bamTEST"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target>
+      <inSequence>
+         <property name="name" expression="json-eval($.name)"/>
+         <property name="brand" expression="json-eval($.brand)"/>
+         <bam>
+            <serverProfile name="">
+               <streamConfig name="" version=""/>
+            </serverProfile>
+         </bam>
+         <log level="full"/>
+         <respond/>
+      </inSequence>
+      <outSequence>
+         <log/>
+      </outSequence>
+   </target>
+</proxy>

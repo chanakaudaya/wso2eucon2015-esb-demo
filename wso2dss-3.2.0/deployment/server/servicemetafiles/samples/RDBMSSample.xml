@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><serviceGroup name="samples/RDBMSSample" hashValue="93839c7f95d6b23f8707c54cb86cdde1" successfullyAdded="true">
+    <service name="samples/RDBMSSample" serviceDocumentation="This sample demonstrates some of the main functionalities of a dataservice using an RDBMS data source" exposedAllTransports="true" serviceDeployedTime="1413899475405" successfullyAdded="true">
+        <operation name="customerAddress">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation serviceDocumentation="Control operation for aborting a boxcarring session" name="abort_boxcar">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation name="incrementEmployeeSalary">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation name="addEmployee">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation serviceDocumentation="Control operation for beginning a boxcarring session" name="begin_boxcar">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation name="incrementEmployeeSalaryEx">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation serviceDocumentation="Control operation for ending a boxcarring session" name="end_boxcar">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation name="setSalaryForEmployees">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation name="employeesByNumber">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation name="productsInfo">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation name="thousandFive">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation name="customersInBoston">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <operation name="setEmployeeSalary">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <bindings>
+            <binding name="RDBMSSampleSOAP12Binding">
+                <operation name="customerAddress"/>
+                <operation name="abort_boxcar"/>
+                <operation name="incrementEmployeeSalary"/>
+                <operation name="addEmployee"/>
+                <operation name="begin_boxcar"/>
+                <operation name="incrementEmployeeSalaryEx"/>
+                <operation name="end_boxcar"/>
+                <operation name="setSalaryForEmployees"/>
+                <operation name="employeesByNumber"/>
+                <operation name="productsInfo"/>
+                <operation name="thousandFive"/>
+                <operation name="customersInBoston"/>
+                <operation name="setEmployeeSalary"/>
+            </binding>
+            <binding name="RDBMSSampleHttpBinding">
+                <operation name="customerAddress"/>
+                <operation name="abort_boxcar"/>
+                <operation name="incrementEmployeeSalary"/>
+                <operation name="addEmployee"/>
+                <operation name="begin_boxcar"/>
+                <operation name="incrementEmployeeSalaryEx"/>
+                <operation name="end_boxcar"/>
+                <operation name="setSalaryForEmployees"/>
+                <operation name="employeesByNumber"/>
+                <operation name="productsInfo"/>
+                <operation name="thousandFive"/>
+                <operation name="customersInBoston"/>
+                <operation name="setEmployeeSalary"/>
+            </binding>
+            <binding name="RDBMSSampleSOAP11Binding">
+                <operation name="customerAddress"/>
+                <operation name="abort_boxcar"/>
+                <operation name="incrementEmployeeSalary"/>
+                <operation name="addEmployee"/>
+                <operation name="begin_boxcar"/>
+                <operation name="incrementEmployeeSalaryEx"/>
+                <operation name="end_boxcar"/>
+                <operation name="setSalaryForEmployees"/>
+                <operation name="employeesByNumber"/>
+                <operation name="productsInfo"/>
+                <operation name="thousandFive"/>
+                <operation name="customersInBoston"/>
+                <operation name="setEmployeeSalary"/>
+            </binding>
+        </bindings>
+        <policies/>
+        <module name="addressing" version="4.2.0" type="engagedModules"/>
+        <parameter name="serviceType">data_service</parameter>
+    </service>
+</serviceGroup>

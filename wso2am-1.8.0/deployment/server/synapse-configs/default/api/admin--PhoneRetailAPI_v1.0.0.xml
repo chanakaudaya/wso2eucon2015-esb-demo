@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse"
+     name="admin--PhoneRetailAPI"
+     context="/PhoneRetail"
+     version="1.0.0"
+     version-type="url">
+   <resource methods="POST" url-mapping="/search" faultSequence="fault">
+      <inSequence>
+         <filter source="$ctx:AM_KEY_TYPE" regex="PRODUCTION">
+            <then>
+               <send>
+                  <endpoint name="admin--PhoneRetailAPI_APIproductionEndpoint_0">
+                     <http uri-template="http://localhost:8281/phoneRetail"/>
+                  </endpoint>
+               </send>
+            </then>
+            <else>
+               <sequence key="_sandbox_key_error_"/>
+            </else>
+         </filter>
+      </inSequence>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </resource>
+   <resource methods="POST" url-mapping="/purchase" faultSequence="fault">
+      <inSequence>
+         <filter source="$ctx:AM_KEY_TYPE" regex="PRODUCTION">
+            <then>
+               <send>
+                  <endpoint name="admin--PhoneRetailAPI_APIproductionEndpoint_1">
+                     <http uri-template="http://localhost:8281/phoneRetail"/>
+                  </endpoint>
+               </send>
+            </then>
+            <else>
+               <sequence key="_sandbox_key_error_"/>
+            </else>
+         </filter>
+      </inSequence>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </resource>
+   <handlers>
+      <handler class="org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler"/>
+      <handler class="org.wso2.carbon.apimgt.gateway.handlers.throttling.APIThrottleHandler">
+         <property name="id" value="A"/>
+         <property name="policyKey" value="gov:/apimgt/applicationdata/tiers.xml"/>
+      </handler>
+      <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageHandler"/>
+      <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtGoogleAnalyticsTrackingHandler">
+         <property name="configKey" value="gov:/apimgt/statistics/ga-config.xml"/>
+      </handler>
+      <handler class="org.wso2.carbon.apimgt.gateway.handlers.ext.APIManagerExtensionHandler"/>
+   </handlers>
+</api>

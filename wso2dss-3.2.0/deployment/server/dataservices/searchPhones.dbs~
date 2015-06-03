@@ -1,0 +1,62 @@
+<data name="searchPhones">
+   <config id="testDS">
+      <property name="driverClassName">com.mysql.jdbc.Driver</property>
+      <property name="url">jdbc:mysql://localhost:3306/CustomersDatabase</property>
+      <property name="username">root</property>
+      <property name="password">root123</property>
+   </config>
+   <query id="searchPhones" useConfig="testDS">
+      <sql>SELECT brand,model,color,price,quantity,description FROM PHONES WHERE brand = ?</sql>
+      <result element="Entries" rowName="Entry">
+         <element column="brand" name="brand" xsdType="string"/>
+         <element column="model" name="model" xsdType="string"/>
+         <element column="price" name="price" xsdType="double"/>
+         <element column="color" name="color" xsdType="string"/>
+         <element column="quantity" name="quantity" xsdType="integer"/>
+         <element column="description" name="description" xsdType="string"/>
+      </result>
+      <param name="param0" sqlType="STRING"/>
+   </query>
+   <operation name="searchPhones">
+      <call-query href="searchPhones">
+         <with-param name="param0" query-param="param0"/>
+      </call-query>
+   </operation>
+   <query id="insertPhones" returnGeneratedKeys="true" useConfig="testDS">
+      <sql>INSERT INTO PHONES (brand,model,color,price,quantity,description) VALUES (?,?,?,?,?,?)</sql>
+      <result element="GeneratedKeys" rowName="Entry" useColumnNumbers="true">
+         <element column="1" name="ID" xsdType="xs:integer"/>
+      </result>
+      <param name="param0" sqlType="STRING"/>
+      <param name="param1" sqlType="STRING"/>
+      <param name="param2" sqlType="STRING"/>
+      <param name="param3" sqlType="DOUBLE"/>
+      <param name="param4" sqlType="INTEGER"/>
+      <param name="param5" sqlType="STRING"/>
+   </query>
+   <operation name="insertPhones">
+      <call-query href="insertPhones">
+         <with-param name="param0" query-param="param0"/>
+         <with-param name="param1" query-param="param1"/>
+         <with-param name="param2" query-param="param2"/>
+         <with-param name="param3" query-param="param3"/>
+         <with-param name="param4" query-param="param4"/>
+         <with-param name="param5" query-param="param5"/>
+      </call-query>
+   </operation>
+   <query id="updatePhones" returnGeneratedKeys="true" useConfig="testDS">
+      <sql>update PHONES set quantity=? where brand=?</sql>
+      <result element="GeneratedKeys" rowName="Entry" useColumnNumbers="true">
+         <element column="1" name="ID" xsdType="xs:integer"/>
+      </result>
+      <param name="param0" sqlType="INTEGER"/>
+      <param name="param1" sqlType="STRING"/>
+   </query>
+   <operation name="updatePhones">
+      <call-query href="updatePhones">
+         <with-param name="param0" query-param="param0"/>
+         <with-param name="param1" query-param="param1"/>
+      </call-query>
+   </operation>
+</data>
+

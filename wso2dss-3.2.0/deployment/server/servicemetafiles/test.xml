@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><serviceGroup name="test" hashValue="ceb21f13b2361bda050c3af38b2dee6e" successfullyAdded="true">
+    <service name="test" serviceDocumentation="" exposedAllTransports="true" serviceDeployedTime="1413960049379" successfullyAdded="true">
+        <operation name="test">
+            <module name="addressing" version="4.2.0" type="engagedModules"/>
+            <module name="wso2statistics" version="4.2.2" type="engagedModules"/>
+            <module name="POXSecurityModule" version="4.2.4" type="engagedModules"/>
+            <module name="ServerAdminModule" version="4.2.0" type="engagedModules"/>
+            <module name="pagination" version="4.2.0" type="engagedModules"/>
+        </operation>
+        <bindings>
+            <binding name="testSOAP12Binding">
+                <operation name="test"/>
+            </binding>
+            <binding name="testHttpBinding">
+                <operation name="test"/>
+            </binding>
+            <binding name="testSOAP11Binding">
+                <operation name="test"/>
+            </binding>
+        </bindings>
+        <policies/>
+        <module name="addressing" version="4.2.0" type="engagedModules"/>
+        <module name="wso2statistics" version="4.2.2" type="engagedModules"/>
+        <module name="POXSecurityModule" version="4.2.4" type="engagedModules"/>
+        <module name="ServerAdminModule" version="4.2.0" type="engagedModules"/>
+        <module name="pagination" version="4.2.0" type="engagedModules"/>
+        <parameter name="serviceType">data_service</parameter>
+    </service>
+</serviceGroup>

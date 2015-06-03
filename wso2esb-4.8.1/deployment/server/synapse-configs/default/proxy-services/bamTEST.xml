@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="bamTEST"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target>
+      <inSequence>
+         <property name="brand" expression="json-eval($.brand)"/>
+         <property name="name" expression="json-eval($.name)"/>
+         <bam>
+            <serverProfile name="phoneRetailKPI">
+               <streamConfig name="org.wso2.bam.phone.retail.store.kpi" version="1.0.0"/>
+            </serverProfile>
+         </bam>
+         <respond/>
+      </inSequence>
+      <outSequence>
+         <log/>
+      </outSequence>
+   </target>
+</proxy>

@@ -1,0 +1,67 @@
+<data name="phoneRetail">
+   <config id="testDS">
+      <property name="driverClassName">com.mysql.jdbc.Driver</property>
+      <property name="url">jdbc:mysql://localhost:3306/CustomersDatabase</property>
+      <property name="username">root</property>
+      <property name="password">root123</property>
+   </config>
+   <query id="searchPhones" useConfig="testDS">
+      <sql>SELECT brand,model,color,price,quantity,description FROM PHONES WHERE brand = ?</sql>
+      <result element="Entries" rowName="Entry">
+         <element column="brand" name="brand" xsdType="string"/>
+         <element column="model" name="model" xsdType="string"/>
+         <element column="price" name="price" xsdType="double"/>
+         <element column="color" name="color" xsdType="string"/>
+         <element column="quantity" name="quantity" xsdType="integer"/>
+         <element column="description" name="description" xsdType="string"/>
+      </result>
+      <param name="brand" sqlType="STRING"/>
+   </query>
+   <operation name="searchPhones">
+      <call-query href="searchPhones">
+         <with-param name="brand" query-param="brand"/>
+      </call-query>
+   </operation>
+   <query id="insertPhones" returnGeneratedKeys="true" useConfig="testDS">
+      <sql>INSERT INTO PHONES (brand,model,color,price,quantity,description) VALUES (?,?,?,?,?,?)</sql>
+      <result element="GeneratedKeys" rowName="Entry" useColumnNumbers="true">
+         <element column="1" name="ID" xsdType="xs:integer"/>
+      </result>
+      <param name="brand" sqlType="STRING"/>
+      <param name="model" sqlType="STRING"/>
+      <param name="color" sqlType="STRING"/>
+      <param name="price" sqlType="DOUBLE"/>
+      <param name="quantity" sqlType="INTEGER"/>
+      <param name="description" sqlType="STRING"/>
+   </query>
+   <operation name="insertPhones">
+      <call-query href="insertPhones">
+         <with-param name="brand" query-param="brand"/>
+         <with-param name="model" query-param="model"/>
+         <with-param name="color" query-param="color"/>
+         <with-param name="price" query-param="price"/>
+         <with-param name="quantity" query-param="quantity"/>
+         <with-param name="description" query-param="description"/>
+      </call-query>
+   </operation>
+   <query id="updatePhones" returnGeneratedKeys="true" useConfig="testDS">
+      <sql>update PHONES set status=?, shipment_address=?, buyerName=?, OrderDate=? where id=?</sql>
+      <result element="GeneratedKeys" rowName="Entry" useColumnNumbers="true">
+         <element column="1" name="ID" xsdType="xs:integer"/>
+      </result>
+      <param name="status" sqlType="STRING"/>
+      <param name="shipment_address" sqlType="STRING"/>
+      <param name="buyerName" sqlType="STRING"/>
+      <param name="OrderDate" sqlType="DATE"/>
+      <param name="id" sqlType="INTEGER"/>
+   </query>
+   <operation name="updatePhones">
+      <call-query href="updatePhones">
+         <with-param name="status" query-param="status"/>
+         <with-param name="shipment_address" query-param="shipment_address"/>
+         <with-param name="buyerName" query-param="buyerName"/>
+         <with-param name="OrderDate" query-param="OrderDate"/>
+         <with-param name="id" query-param="id"/>
+      </call-query>
+   </operation>
+</data>

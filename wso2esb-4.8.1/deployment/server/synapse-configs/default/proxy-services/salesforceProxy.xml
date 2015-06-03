@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="salesforceProxy"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target>
+      <inSequence>
+         <salesforce.init>
+            <username>shafreen2@gmail.com</username>
+            <password>abcd123463ZUCli6fMM1zNP6ji5BwfUg</password>
+            <loginUrl>https://login.salesforce.com/services/Soap/u/32.0</loginUrl>
+         </salesforce.init>
+         <payloadFactory media-type="xml">
+            <format>
+               <sfdc:sObjects xmlns:sfdc="sfdc" type="PhoneRetail__c">
+                  <sfdc:sObject>
+                     <sfdc:buyerName__c>shafreen</sfdc:buyerName__c>
+                     <sfdc:OrderDate__c>2014-10-11</sfdc:OrderDate__c>
+                     <sfdc:shipment_address__c>No. 395, chapple streat, colombo 7, sri lanka.</sfdc:shipment_address__c>
+                  </sfdc:sObject>
+               </sfdc:sObjects>
+            </format>
+            <args/>
+         </payloadFactory>
+         <salesforce.create>
+            <allOrNone>0</allOrNone>
+            <allowFieldTruncate>0</allowFieldTruncate>
+            <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
+         </salesforce.create>
+         <salesforce.query>
+            <batchSize>200</batchSize>
+            <queryString>select id,name from Account</queryString>
+         </salesforce.query>
+         <log>
+            <property name="===&gt;" value="HIT"/>
+         </log>
+         <respond/>
+      </inSequence>
+      <outSequence>
+         <log/>
+      </outSequence>
+   </target>
+</proxy>
